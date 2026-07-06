@@ -1,0 +1,133 @@
+/* Unpact site — brand: charcoal #171A1C, orange #F59A2F, Plus Jakarta Sans */
+:root {
+  --bg: #171A1C;
+  --surface: #23282B;
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.12);
+  --accent: #F59A2F;
+  --accent-dark: #D4831A;
+  --text: #F7FAFB;
+  --muted: rgba(247, 250, 251, 0.62);
+  --faint: rgba(247, 250, 251, 0.38);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+/* ---------- header ---------- */
+header {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+header .wrap { display: flex; align-items: center; justify-content: space-between; }
+/* Header brand is the wordmark alone — the icon artwork doesn't read at
+   header sizes, so it lives only in the favicon and store contexts. */
+.brand { display: flex; align-items: center; text-decoration: none; }
+.wordmark { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+.wordmark .unp { color: var(--text); }
+.wordmark .act { color: var(--accent); }
+header nav a {
+  color: var(--muted); text-decoration: none; font-size: 14px; margin-left: 22px; font-weight: 600;
+}
+header nav a:hover { color: var(--text); }
+
+/* ---------- hero ---------- */
+.hero { padding: 72px 0 56px; }
+.hero .wrap { display: flex; gap: 48px; align-items: center; flex-wrap: wrap; }
+.hero-copy { flex: 1 1 380px; }
+.tagline {
+  color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: 4px;
+  margin-bottom: 18px;
+}
+h1 { font-size: 44px; line-height: 1.15; letter-spacing: -1.2px; font-weight: 800; margin-bottom: 18px; }
+.sub { color: var(--muted); font-size: 18px; max-width: 46ch; margin-bottom: 30px; }
+.badges { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--card); border: 1px solid var(--border);
+  color: var(--muted); border-radius: 12px; padding: 12px 20px;
+  font-size: 14px; font-weight: 700; text-decoration: none;
+}
+.badge.primary { background: var(--accent); border-color: var(--accent); color: #171A1C; }
+.badge .soon { font-size: 10px; font-weight: 800; letter-spacing: 1px; color: var(--faint); }
+
+/* ---------- CSS phone mock ---------- */
+.phone {
+  flex: 0 0 auto; width: 272px; height: 560px; margin: 0 auto;
+  background: var(--bg);
+  border: 10px solid #2E3438; border-radius: 44px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 60px rgba(245, 154, 47, 0.07);
+  padding: 28px 18px; display: flex; flex-direction: column; align-items: center;
+}
+.phone .date { color: var(--faint); font-size: 9px; font-weight: 700; letter-spacing: 2px; margin-bottom: 26px; }
+.phone .pwordmark { font-size: 30px; font-weight: 800; letter-spacing: -0.5px; }
+.phone .sep { display: flex; align-items: center; gap: 8px; margin: 14px 0 26px; }
+.phone .sep .line { width: 36px; height: 1px; background: rgba(255, 255, 255, 0.25); }
+.phone .sep svg { filter: drop-shadow(0 0 5px rgba(245, 154, 47, 0.7)); }
+.phone .input {
+  width: 100%; border: 1px solid var(--border); background: var(--card);
+  border-radius: 18px; padding: 16px 14px; color: var(--muted); font-size: 13px;
+}
+.phone .orb-zone { flex: 1; display: flex; align-items: center; justify-content: center; }
+.phone .orb {
+  width: 118px; height: 118px; border-radius: 50%;
+  background: var(--surface); border: 1px solid rgba(245, 154, 47, 0.4);
+  box-shadow: 0 0 44px rgba(245, 154, 47, 0.35);
+  display: flex; align-items: center; justify-content: center;
+}
+.phone .hint { color: var(--muted); font-size: 11px; margin-bottom: 6px; }
+
+/* ---------- features ---------- */
+.features { padding: 40px 0 24px; }
+.features .wrap { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+.card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 26px;
+}
+.card .icon {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: rgba(245, 154, 47, 0.12); display: flex; align-items: center; justify-content: center;
+  margin-bottom: 16px;
+}
+.card h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.3px; }
+.card p { color: var(--muted); font-size: 14.5px; }
+
+/* ---------- how it works ---------- */
+.how { padding: 48px 0 64px; }
+.how h2 { font-size: 28px; letter-spacing: -0.7px; margin-bottom: 28px; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.step .num {
+  color: var(--accent); font-weight: 800; font-size: 13px; letter-spacing: 2px; margin-bottom: 8px;
+}
+.step p { color: var(--muted); font-size: 14.5px; }
+.step strong { color: var(--text); }
+
+/* ---------- footer ---------- */
+footer { border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 30px 0 44px; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+footer, footer a { color: var(--faint); font-size: 13px; text-decoration: none; }
+footer a:hover { color: var(--muted); }
+footer nav a { margin-right: 20px; }
+
+/* ---------- legal pages ---------- */
+.legal { padding: 56px 0 80px; max-width: 760px; }
+.legal h1 { font-size: 32px; margin-bottom: 6px; }
+.legal .updated { color: var(--faint); font-size: 13px; margin-bottom: 36px; }
+.legal h2 { font-size: 19px; margin: 34px 0 10px; letter-spacing: -0.3px; }
+.legal p, .legal li { color: var(--muted); font-size: 15px; margin-bottom: 10px; }
+.legal ul { padding-left: 22px; margin-bottom: 14px; }
+.legal strong { color: var(--text); }
+.legal a { color: var(--accent); }
+
+@media (max-width: 640px) {
+  h1 { font-size: 34px; }
+  .hero { padding: 48px 0 40px; }
+}
