@@ -100,16 +100,6 @@ h1 { font-size: 44px; line-height: 1.15; letter-spacing: -1.2px; font-weight: 80
 .card h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.3px; }
 .card p { color: var(--muted); font-size: 14.5px; }
 
-/* ---------- how it works ---------- */
-.how { padding: 48px 0 64px; }
-.how h2 { font-size: 28px; letter-spacing: -0.7px; margin-bottom: 28px; }
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
-.step .num {
-  color: var(--accent); font-weight: 800; font-size: 13px; letter-spacing: 2px; margin-bottom: 8px;
-}
-.step p { color: var(--muted); font-size: 14.5px; }
-.step strong { color: var(--text); }
-
 /* ---------- demo video ---------- */
 .demo { padding: 8px 0 48px; }
 .demo h2 { font-size: 28px; letter-spacing: -0.7px; margin-bottom: 6px; }
@@ -158,6 +148,11 @@ h1 { font-size: 44px; line-height: 1.15; letter-spacing: -1.2px; font-weight: 80
 .faq details[open] summary::after { content: '\2212'; }
 .faq details p { color: var(--muted); font-size: 14.5px; margin-top: 10px; }
 .faq a { color: var(--accent); }
+
+/* ---------- closing cta ---------- */
+.cta { padding: 56px 0 72px; text-align: center; border-top: 1px solid var(--border); }
+.cta h2 { font-size: 30px; letter-spacing: -0.8px; margin-bottom: 10px; }
+.cta-sub { color: var(--muted); font-size: 16px; margin-bottom: 24px; }
 
 /* ---------- footer ---------- */
 footer { border-top: 1px solid rgba(255, 255, 255, 0.06); padding: 30px 0 44px; }
