@@ -27,12 +27,15 @@ same dashboard).
 
 ## Before going live
 
+- [ ] Run `node verify-responsive.mjs` from this directory.
 - [ ] Replace [YOUR STATE] in terms.html with your state (governing law).
 - [ ] Set up support@unpact.app forwarding (pages reference it).
-- [ ] When store listings go live: swap the hero badges in index.html for real
-      App Store / Google Play badge links.
-- [ ] Optionally replace the CSS phone mock with a real screenshot once the UI
-      is final.
+- [ ] Verify the Windows and Android release download URLs.
+- [ ] Confirm current iPhone availability before changing its neutral contact link.
+- [ ] Verify every feature claim against the released build capability matrix.
+- [ ] Replace product illustrations with sanitized current screenshots when available.
+- [ ] Publish the authenticated browser portal separately; do not place it inside
+      this public marketing-site directory.
 
 ## Store submission URLs (what goes where)
 
