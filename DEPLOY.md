@@ -27,6 +27,9 @@ same dashboard).
 
 ## Before going live
 
+- [ ] Run `node scripts/sync-demo-media.mjs --check` from this directory. Native
+      recordings and provenance are described in `assets/demo/README.md`;
+      pending recordings retain text examples instead of broken video players.
 - [ ] Run `node verify-responsive.mjs` from this directory.
 - [ ] Replace [YOUR STATE] in terms.html with your state (governing law).
 - [ ] Set up support@unpact.app forwarding (pages reference it).

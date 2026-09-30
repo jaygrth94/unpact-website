@@ -4,7 +4,9 @@ import { existsSync } from 'node:fs';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+
+const WEBSITE_ROOT = fileURLToPath(new URL('.', import.meta.url));
 
 const VIEWPORTS = [
   [320, 568],
@@ -18,7 +20,8 @@ const VIEWPORTS = [
   [1440, 900],
   [1920, 1080],
 ];
-const PAGES = ['index.html', 'privacy.html', 'terms.html', 'delete-account.html'];
+const PAGES = ['index.html', 'privacy.html', 'terms.html', 'delete-account.html',
+  'calendar-android.html'];
 
 const chromeCandidates = [
   process.env.CHROME_PATH,
@@ -124,7 +127,9 @@ try {
   await client.send('Runtime.enable');
 
   for (const page of PAGES) {
-    const pageURL = pathToFileURL(resolve(page)).href;
+    const pagePath = resolve(WEBSITE_ROOT, page);
+    if (!existsSync(pagePath)) throw new Error(`Missing page: ${pagePath}`);
+    const pageURL = pathToFileURL(pagePath).href;
     for (const [width, height] of VIEWPORTS) {
       await client.send('Emulation.setDeviceMetricsOverride', {
         width,
@@ -137,11 +142,13 @@ try {
       await loaded;
 
       const result = await client.send('Runtime.evaluate', {
-        expression: `(() => {
+        expression: `(async () => {
+          await document.fonts.ready;
           const centerDelta = (selector) => {
             const node = document.querySelector(selector);
             if (!node) return null;
             const rect = node.getBoundingClientRect();
+            if (!rect.width || !rect.height) return null;
             return Math.abs(((rect.left + rect.right) / 2) - (document.documentElement.clientWidth / 2));
           };
           return JSON.stringify({
@@ -150,29 +157,40 @@ try {
             scrollWidth: document.documentElement.scrollWidth,
             bodyScrollWidth: document.body.scrollWidth,
             heroCenterDelta: centerDelta('.hero-copy'),
-            previewCenterDelta: centerDelta('.plan-preview')
+            previewCenterDelta: centerDelta('[data-demo="capture"]'),
+            planExamplePresent: centerDelta('[data-demo="plan"]') != null
           });
         })()`,
+        awaitPromise: true,
         returnByValue: true,
       });
       const metrics = JSON.parse(result.result.value);
       const overflow = Math.max(metrics.scrollWidth, metrics.bodyScrollWidth) - metrics.clientWidth;
+      const problems = [];
       if (overflow > 1) {
-        failed = true;
-        console.error(`${page} ${width}x${height}: horizontal overflow of ${overflow}px`, metrics);
-      } else {
-        console.log(`${page} ${width}x${height}: OK`);
+        problems.push(`horizontal overflow of ${overflow}px`);
       }
       if (
         page === 'index.html'
-        && width <= 430
         && (
-          metrics.heroCenterDelta > 2
-          || metrics.previewCenterDelta > 2
+          metrics.heroCenterDelta == null
+          || metrics.previewCenterDelta == null
+          || !metrics.planExamplePresent
         )
       ) {
+        problems.push('required hero, capture example, or mobile planning example is missing or hidden');
+      } else if (
+        page === 'index.html'
+        && width <= 430
+        && (metrics.heroCenterDelta > 2 || metrics.previewCenterDelta > 2)
+      ) {
+        problems.push('mobile hero is not centered');
+      }
+      if (problems.length) {
         failed = true;
-        console.error(`${page} ${width}x${height}: mobile hero is not centered`, metrics);
+        console.error(`${page} ${width}x${height}: ${problems.join('; ')}`, metrics);
+      } else {
+        console.log(`${page} ${width}x${height}: OK`);
       }
     }
   }

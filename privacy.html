@@ -23,7 +23,7 @@
 
 <main class="legal wrap">
   <h1>Privacy Policy</h1>
-  <div class="updated">Last updated: August 3, 2026</div>
+  <div class="updated">Last updated: September 28, 2026</div>
 
   <p>Unpact ("we", "us") is a task capture and planning service. This policy explains what
   information we collect, how we use it, and the choices you have. The short version:
@@ -37,17 +37,27 @@
     <li><strong>Content you create</strong> — voice recordings, their transcripts, text
     memos, tasks, lists, subtasks, habits, reminders, plans, and answers you provide
     when asking Unpact to research a task.</li>
-    <li><strong>Usage information</strong> — counts of your monthly captures (used to
-    enforce the free plan's limits) and basic subscription status.</li>
+    <li><strong>Calendar commitments</strong> — if you turn this on, Unpact reads the
+    calendars already set up on your device and keeps, for each event, only its
+    <strong>start time, end time, title, and whether it is an all-day event</strong>.
+    We do not collect attendees, locations, notes, organisers, invitation status, or
+    any other part of an event. Unpact never creates, changes, or deletes anything in
+    your calendar; on Android the app does not even request permission to write.</li>
+    <li><strong>Usage information</strong> — counts of your monthly captures, research
+    runs, and plans (used to enforce the free plan's limits) and basic subscription
+    status.</li>
   </ul>
   <p>Microphone access is used only while you are actively recording a memo.
   Notification and alarm permissions are used only for alerts you enable on a
-  supported device.</p>
+  supported device. Calendar access is used only to work out when you are already
+  busy, and only while the feature is switched on.</p>
 
   <h2>How we use your information</h2>
   <ul>
     <li>To provide the core service: transcribing voice memos, using AI to structure
     tasks and plans, and researching public sources when you ask for detailed help.</li>
+    <li>To plan around commitments you already have, so a plan does not plan work on
+    top of a meeting, and to show you which commitment a gap in your plan is for.</li>
     <li>To operate your account, enforce plan limits, and process subscriptions.</li>
     <li>To respond when you contact support.</li>
   </ul>
@@ -60,7 +70,11 @@
   <ul>
     <li><strong>AI and transcription providers</strong> — recordings, transcripts,
     memos, task details, and answers may be sent to the model or transcription
-    provider configured for that feature so it can return the requested result.</li>
+    provider configured for that feature so it can return the requested result.
+    <strong>This includes the times and titles of your calendar commitments when you
+    ask Unpact to plan a day</strong>, because a plan has to be built around them and
+    the name is what lets it reason sensibly about each one. No other part of a
+    calendar event is sent.</li>
     <li><strong>Public websites</strong> — when Unpact researches a task, it may
     retrieve publicly available pages to identify supporting sources. It does not
     submit your account credentials to those sites.</li>
@@ -69,12 +83,19 @@
   </ul>
 
   <h2>Data retention and deletion</h2>
-  <p>Voice memos, their recordings, and their transcripts are deleted automatically
-  two weeks after capture. Tasks, habits, and plans created from them are kept until
-  you delete them or your account.</p>
+  <p>When you open capture history, completed or inactive memos older than 14 days are removed, including their recordings and memo transcripts. Memos still being processed are left for a later cleanup. This is not a scheduled deletion at exactly 14 days.</p>
+  <p>Task-processing records, including a copy of the input text, remain with your account. Tasks, habits, and plans are also kept until you delete them or your account. The memo cleanup window does not govern retention by AI or transcription providers.</p>
+  <p>Calendar commitments are kept only for a rolling window of roughly the past week
+  and the next two months, and anything outside that is removed each time your device
+  syncs. You can stop this at any time from <strong>Profile → Calendar → Stop reading
+  my calendar</strong>, which deletes the commitments Unpact holds; your own calendar is
+  untouched. Turning off calendar permission in your device settings has the same
+  effect on new data.</p>
+
   <p>Your other data is retained while your account exists. You can delete your account at
   any time from <strong>Profile → Delete account</strong> inside the app, which permanently
-  removes your account, memos, recordings, transcripts, tasks, habits, plans, and lists. You can also
+  removes your account, memos, recordings, transcripts, tasks, habits, plans, lists, and
+  stored calendar commitments. You can also
   request deletion by emailing <a href="mailto:support@unpact.app">support@unpact.app</a>.
   See <a href="delete-account.html">How to delete your account</a>.</p>
 

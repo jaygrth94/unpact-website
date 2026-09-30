@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Show your Unpact plan in Google Calendar — Unpact</title>
+  <meta
+    name="description"
+    content="How to subscribe to your Unpact day plan from Google Calendar on Android."
+  />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="wordmark"><span class="unp">Unp</span><span class="act">act</span></span>
+    </a>
+    <nav><a href="index.html">Home</a></nav>
+  </div>
+</header>
+
+<main class="legal wrap">
+  <h1>Show your plan in Google Calendar</h1>
+  <div class="updated">Android</div>
+
+  <p>Unpact can publish your accepted day plans as a calendar you subscribe to,
+  so your planned blocks appear alongside your meetings. It is one way: your
+  plan goes out, and nothing you change in Google Calendar comes back.</p>
+
+  <p><strong>The awkward part first, so it is not a surprise.</strong> The Google
+  Calendar app on Android cannot add a subscribed calendar. There is no button
+  for it. Subscriptions are added on the web at
+  <strong>calendar.google.com</strong> and then sync down to your phone — or you
+  use a small helper app that can do it on the device. Both routes are below.</p>
+
+  <h2>First, get your link</h2>
+  <ul>
+    <li>Open Unpact and go to <strong>Profile</strong> (the gear icon).</li>
+    <li>Under <strong>Calendar</strong>, tap <strong>Copy the link instead</strong>.</li>
+    <li>Send it somewhere you can reach it later — email it to yourself, or save
+    it to Keep. It is a long link starting <code>https://api.unpact.app/api/calendar/</code>.</li>
+  </ul>
+
+  <p>Treat that link like a password. Anyone who has it can read the titles and
+  times of your planned blocks. If you ever share it by accident, tap
+  <strong>Replace the link</strong> in the same place — the old one stops working
+  straight away.</p>
+
+  <h2>Option 1 — Google Calendar on the web</h2>
+
+  <p>No extra app, but you need a browser view of the full site. A computer is
+  easiest. On the phone you can use Chrome with <strong>Desktop site</strong>
+  turned on, because the mobile version of Google Calendar hides the settings.</p>
+
+  <ul>
+    <li>Go to <strong>calendar.google.com</strong> and sign in.</li>
+    <li>In the left sidebar find <strong>Other calendars</strong> and click the
+    <strong>+</strong> beside it.</li>
+    <li>Choose <strong>From URL</strong>.</li>
+    <li>Paste your Unpact link and click <strong>Add calendar</strong>.</li>
+    <li>It appears in the sidebar under <strong>Other calendars</strong>.</li>
+  </ul>
+
+  <p><strong>Then do this, or it will not show on your phone.</strong> A calendar
+  added on the web is often not switched on for the Android app. Open the Google
+  Calendar app, tap the menu (three lines), go to <strong>Settings</strong>, find
+  the new Unpact calendar in the list, and turn <strong>Sync</strong> on. This is
+  the step people miss when the calendar appears on their computer but never on
+  their phone.</p>
+
+  <p>One limitation worth knowing: Google decides how often it re-reads a
+  subscribed calendar, and it is not quick — changes can take many hours to
+  appear. It is fine for a plan you made the night before. It is not going to
+  reflect a block you moved five minutes ago.</p>
+
+  <h2>Option 2 — a helper app, if you want it to update faster</h2>
+
+  <p>If the delay in Option 1 bothers you, an app called <strong>ICSx⁵</strong>
+  (free, on the Play Store) exists to do exactly this job. It subscribes to a
+  calendar link on the phone itself, lets you choose how often it refreshes, and
+  the result shows up in Google Calendar like any other calendar.</p>
+
+  <ul>
+    <li>Install <strong>ICSx⁵</strong> from the Play Store.</li>
+    <li>Open it and tap <strong>+</strong> to add a subscription.</li>
+    <li>Paste your Unpact link and continue.</li>
+    <li>Give it a name, pick a colour, and choose a sync interval.</li>
+    <li>Grant it calendar permission when asked. Your Unpact blocks then appear
+    in Google Calendar.</li>
+  </ul>
+
+  <p>We are not affiliated with ICSx⁵ — it is simply the usual answer to a gap
+  Android leaves open.</p>
+
+  <h2>If nothing appears</h2>
+  <ul>
+    <li><strong>Have you accepted a plan?</strong> Only accepted plans are
+    published. A draft you have not accepted stays on your phone.</li>
+    <li><strong>Give it a refresh cycle.</strong> Nothing is instant here — see
+    the note in Option 1.</li>
+    <li><strong>Check the calendar is switched on</strong> in the Google Calendar
+    app's settings.</li>
+    <li><strong>Check the link.</strong> It should end in <code>.ics</code>. If
+    you replaced it after subscribing, the old subscription is dead and you need
+    to add the new link.</li>
+  </ul>
+
+  <h2>On iPhone</h2>
+  <p>Simpler: tap <strong>Show my plan in another calendar</strong> in Profile and
+  iOS offers to subscribe straight away. No link to copy and no settings to
+  visit.</p>
+
+  <p>Still stuck? Email <a href="mailto:support@unpact.app">support@unpact.app</a>.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Unpact</div>
+    <nav>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="delete-account.html">Delete account</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

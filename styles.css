@@ -883,6 +883,13 @@ footer nav {
   font-size: 32px;
 }
 
+/* A feed URL is long and unbreakable, and on a 320px screen it pushed the
+   whole page sideways. Break it rather than let the body scroll. */
+.legal code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .legal .updated {
   margin-bottom: 36px;
   color: var(--faint);
@@ -920,6 +927,149 @@ footer nav {
   outline-offset: 3px;
 }
 
+
+/* ---------------------------------------------------------------------------
+   Hero demonstration: what you said, and what you got back. The old preview
+   showed a finished day plan, which is the third thing the app does. This
+   shows the first, because that is the promise the page is now making.
+   --------------------------------------------------------------------------- */
+.dump-preview {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--border);
+  border-radius: 26px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+    var(--bg-deep);
+  box-shadow: 0 35px 90px rgba(0, 0, 0, 0.42), 0 0 80px rgba(245, 154, 47, 0.08);
+}
+
+.dump-kicker {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.dump-said p {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.55;
+}
+
+.dump-arrow {
+  margin: 20px 0 18px;
+  color: var(--accent);
+  font-size: 20px;
+  text-align: center;
+}
+
+.dump-tasks {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dump-tasks li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px 14px;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: var(--card);
+}
+
+.dump-tasks strong {
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.dump-tasks span {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+/* The claim the research card exists to make: it says what it could not
+   establish, rather than leaving the gap unmarked. */
+.unverified-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  color: var(--faint);
+  font-size: 8px;
+}
+
+.unverified-row span:first-child {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.section-lede {
+  max-width: 58ch;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: clamp(15px, 1.7vw, 17px);
+}
+
+/* Two pillars, deliberately only two. */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(20px, 3vw, 34px);
+  margin-top: clamp(34px, 5vw, 52px);
+}
+
+.pillar {
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--card);
+}
+
+.pillar-number {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.pillar h3 {
+  margin-bottom: 12px;
+  font-size: clamp(20px, 2.4vw, 25px);
+  letter-spacing: -0.4px;
+}
+
+.pillar p {
+  color: var(--muted);
+  font-size: clamp(14.5px, 1.6vw, 16px);
+}
+
+.pillar-detail {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--faint) !important;
+  font-size: 14px !important;
+}
+
 @media (max-width: 920px) {
   .hero-grid,
   .showcase-grid,
@@ -933,6 +1083,7 @@ footer nav {
 
   .plan-preview,
   .desktop-preview,
+  .dump-preview,
   .deep-card {
     width: min(100%, 680px);
     margin-inline: auto;
@@ -944,6 +1095,10 @@ footer nav {
 }
 
 @media (max-width: 680px) {
+  .pillar-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero {
     padding-top: 50px;
   }
@@ -1073,5 +1228,479 @@ footer nav {
 
   .button {
     transition: none;
+  }
+}
+
+/* Homepage positioning. Scoped tokens keep support/legal page styling stable. */
+.home-page {
+  --muted: #b4bec4;
+  --faint: #a1adb5;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 20;
+  top: 12px;
+  left: 16px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 800;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.home-page section[id] {
+  scroll-margin-top: 24px;
+}
+
+.home-page .hero-grid {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: clamp(32px, 5vw, 64px);
+}
+
+.hero-eyebrow {
+  max-width: 36ch;
+  margin-bottom: 18px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.home-page h1 {
+  max-width: none;
+  font-size: clamp(40px, 4.6vw, 60px);
+}
+
+.home-page .hero-sub {
+  max-width: 39ch;
+  font-size: clamp(17px, 1.8vw, 19px);
+}
+
+.hero-pricing {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.hero-pricing a,
+.download-support a {
+  color: var(--text);
+  text-underline-offset: 3px;
+}
+
+.home-page .availability {
+  max-width: 44ch;
+  font-size: 13px;
+}
+
+.home-page .button:hover {
+  transform: none;
+}
+
+.home-page .dump-preview {
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+}
+
+.home-page .dump-kicker {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.home-page .dump-tasks strong {
+  overflow-wrap: anywhere;
+}
+
+.dump-preview figcaption {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.home-page .section-lede {
+  margin-inline: 0;
+}
+
+.workflow {
+  border-top: 1px solid var(--border);
+}
+
+.home-page .workflow-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  list-style: none;
+}
+
+.workflow-step {
+  min-width: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 22px;
+}
+
+.step-number,
+.card-kicker {
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.workflow-step h3,
+.support-card h3 {
+  margin-top: 16px;
+  font-size: 22px;
+  line-height: 1.35;
+  letter-spacing: -0.4px;
+}
+
+.workflow-step > p,
+.support-card > p:not(.card-kicker) {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.optional-features {
+  border-block: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.support-grid,
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.support-card,
+.price-card {
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: clamp(22px, 3vw, 32px);
+  background: var(--card);
+}
+
+.support-card .research-example {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  font-size: 14px;
+}
+
+.section-note {
+  max-width: 76ch;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.price-value {
+  margin-top: 18px;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -1px;
+}
+
+.price-value-copy {
+  max-width: 19ch;
+  font-size: 27px;
+  letter-spacing: -0.6px;
+}
+
+.price-detail {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.price-features {
+  display: grid;
+  gap: 9px;
+  margin-top: 24px;
+  padding-left: 20px;
+  font-size: 15px;
+}
+
+.price-features li::marker {
+  color: var(--accent);
+}
+
+.price-note {
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.home-page .faq {
+  padding-top: 0;
+}
+
+.home-page .faq summary {
+  min-height: 44px;
+}
+
+.download-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.download-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+
+.download-card > p {
+  flex: 1;
+  font-size: 14px;
+}
+
+.download-card .button {
+  width: 100%;
+  margin-top: 24px;
+  padding-inline: 12px;
+  text-align: center;
+}
+
+.cta .download-support {
+  margin-top: 32px;
+  font-size: 14px;
+}
+
+@media (max-width: 920px) {
+  .home-page .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .hero-copy {
+    width: 100%;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero-eyebrow,
+  .home-page .availability,
+  .home-page .section-lede {
+    margin-inline: auto;
+  }
+
+  .home-page .workflow-grid,
+  .support-grid,
+  .pricing-grid,
+  .download-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .hero {
+    padding-top: 36px;
+  }
+
+  .home-page .hero-grid {
+    gap: 36px;
+  }
+
+  .download-card .button {
+    width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page .header-links {
+    gap: 16px;
+  }
+
+  .download-card .button {
+    width: 100%;
+  }
+}
+
+/* Native-demo slots retain text examples until real recordings are supplied. */
+.home-page .hero-copy {
+  align-self: start;
+}
+
+.hero-platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 18px;
+  margin-top: 8px;
+}
+
+.hero-platforms a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 12px;
+  text-underline-offset: 4px;
+}
+
+.planning-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 48px);
+}
+
+.planning-copy,
+.plan-walkthrough {
+  min-width: 0;
+}
+
+.planning-copy h3,
+.research-summary h3 {
+  margin-top: 16px;
+  font-size: 24px;
+  line-height: 1.35;
+  letter-spacing: -0.4px;
+}
+
+.planning-copy > p:not(.card-kicker),
+.research-summary > div > p:not(.card-kicker) {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.plan-walkthrough {
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card);
+}
+
+.demo-steps {
+  margin-top: 20px;
+  padding-left: 22px;
+}
+
+.demo-steps li {
+  padding-left: 6px;
+  font-size: 14px;
+}
+
+.demo-steps li::marker {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.demo-steps li + li {
+  margin-top: 20px;
+}
+
+.demo-steps strong,
+.demo-steps span {
+  display: block;
+}
+
+.demo-steps span {
+  margin-top: 5px;
+  color: var(--muted);
+}
+
+.plan-walkthrough figcaption,
+.demo-caption {
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.research-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.demo-recording ~ .demo-illustration,
+.demo-recording ~ .demo-fallback-caption,
+.demo [hidden] {
+  display: none !important;
+}
+
+.demo-video,
+.demo-still {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  margin-inline: auto;
+  border-radius: 14px;
+  background: var(--bg-deep);
+}
+
+.demo-description,
+.demo-media-error,
+.demo-transcript {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.demo-transcript summary {
+  min-height: 44px;
+  padding-block: 10px;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.demo-transcript ol {
+  padding-left: 22px;
+}
+
+.demo-transcript li + li {
+  margin-top: 8px;
+}
+
+.download-card[id] {
+  scroll-margin-top: 24px;
+}
+
+.download-mobile {
+  padding: 24px 20px;
+  border: 1px solid rgba(245, 154, 47, 0.35);
+  border-radius: 18px;
+  background: var(--card);
+}
+
+.download-desktop {
+  padding: 24px 4px;
+}
+
+@media (max-width: 680px) {
+  .hero-platforms {
+    justify-content: center;
+  }
+
+  .planning-showcase,
+  .research-summary {
+    grid-template-columns: 1fr;
   }
 }
