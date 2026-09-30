@@ -3,28 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Unpact — Simple task planning, designed with ADHD in mind</title>
-  <meta name="description" content="Less setup. Clearer next steps. Unpact is a simple task app designed with ADHD in mind. Turn your thoughts into editable tasks and plan your day when you're ready. Start free." />
+  <title>Unpact — Simple AI help for everyday tasks</title>
+  <meta name="description" content="Get it out of your head. Find your next step. Unpact uses AI to turn thoughts into editable tasks, research unfamiliar steps, and draft your day. Start free." />
   <link rel="canonical" href="https://www.unpact.app/" />
   <link rel="icon" type="image/png" href="assets/icon.png" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Unpact" />
-  <meta property="og:title" content="Unpact — Simple task planning, designed with ADHD in mind" />
-  <meta property="og:description" content="Less setup. Clearer next steps. Turn your thoughts into editable tasks and plan your day when you're ready. Start free." />
+  <meta property="og:title" content="Unpact — Simple AI help for everyday tasks" />
+  <meta property="og:description" content="Get it out of your head. Find your next step. Turn thoughts into tasks with AI, get help with unfamiliar steps, and plan when you need to. Start free." />
   <meta property="og:url" content="https://www.unpact.app/" />
   <meta property="og:image" content="https://www.unpact.app/assets/icon.png" />
   <meta property="og:image:alt" content="Unpact app icon" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Unpact — Simple task planning, designed with ADHD in mind" />
-  <meta name="twitter:description" content="Less setup. Clearer next steps. Turn your thoughts into editable tasks and plan your day when you're ready. Start free." />
+  <meta name="twitter:title" content="Unpact — Simple AI help for everyday tasks" />
+  <meta name="twitter:description" content="Get it out of your head. Find your next step. Turn thoughts into tasks with AI, get help with unfamiliar steps, and plan when you need to. Start free." />
   <meta name="twitter:image" content="https://www.unpact.app/assets/icon.png" />
   <meta name="twitter:image:alt" content="Unpact app icon" />
   <meta name="theme-color" content="#171A1C" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=9" />
   <script src="demo-player.js?v=1" defer></script>
 </head>
 <body class="home-page">
@@ -46,19 +46,19 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div class="hero-copy">
-          <p class="hero-eyebrow">A simple task app designed with ADHD in mind.</p>
-          <h1 id="hero-title">Less setup.<br />Clearer next steps.</h1>
+          <p class="hero-eyebrow">Simple AI help for everyday tasks.<br />Designed with ADHD in mind.</p>
+          <h1 id="hero-title">Get it out of your head.<br /><span>Find your next step.</span></h1>
           <p class="hero-sub">
-            Speak or type what&rsquo;s on your mind, turn it into editable tasks,
-            and plan your day when you&rsquo;re ready.
+            Speak or type what&rsquo;s on your mind. Unpact&rsquo;s AI turns it into
+            editable tasks. Get help with unfamiliar steps, and plan your day when you need to.
           </p>
           <div class="button-row">
             <a class="button button-primary" href="#get-unpact">Start free</a>
             <a class="button button-secondary" href="#how-it-works">See how it works</a>
           </div>
           <p class="hero-pricing">
-            No card required. <a href="#pricing">See what&rsquo;s included</a>.<br />
-            Pro pricing is shown in the app.
+            Free includes 20 captures a month. No card required.<br />
+            <a href="#pricing">See what&rsquo;s included</a>.
           </p>
           <p class="availability">Voice capture on mobile. Prefer a keyboard? You can type, too.</p>
           <nav class="hero-platforms" aria-label="Choose your device">
@@ -68,25 +68,25 @@
           </nav>
         </div>
 
-        <figure class="dump-preview demo" data-demo="capture" aria-label="From a thought to editable tasks">
+        <figure class="dump-preview demo" data-demo="capture" aria-label="Illustrative example of one thought becoming three tasks">
           <!-- demo:capture:media:start -->
           <!-- demo:capture:media:end -->
           <div class="demo-illustration">
             <div class="dump-said">
-              <span class="dump-kicker">YOUR THOUGHT</span>
-              <p>&ldquo;Call the dentist, send Sam the receipt, and put the bins out tomorrow.&rdquo;</p>
+              <span class="dump-kicker">START WITH A THOUGHT</span>
+              <p>&ldquo;Oh, I need to call the dentist. And send Sam that receipt. The bins need to go out tomorrow, too.&rdquo;</p>
             </div>
             <div class="dump-arrow" aria-hidden="true">&darr;</div>
             <div>
-              <span class="dump-kicker">BECOMES THREE TASKS</span>
-              <ul class="dump-tasks">
-                <li><strong>Call the dentist</strong></li>
-                <li><strong>Send Sam the receipt</strong></li>
-                <li><strong>Put the bins out</strong><span>Tomorrow</span></li>
+              <span class="dump-kicker">AI SORTS IT INTO TASKS</span>
+              <ul class="dump-tasks capture-example-tasks">
+                <li><label><input type="checkbox" aria-label="Mark example task Call the dentist complete" /><strong>Call the dentist</strong></label></li>
+                <li><label><input type="checkbox" aria-label="Mark example task Send Sam the receipt complete" /><strong>Send Sam the receipt</strong></label></li>
+                <li><label><input type="checkbox" aria-label="Mark example task Put the bins out complete" /><strong>Put the bins out</strong></label><span>Tomorrow</span></li>
               </ul>
             </div>
           </div>
-          <figcaption class="demo-fallback-caption">Illustrative example. Your tasks stay editable.</figcaption>
+          <figcaption class="demo-fallback-caption">Illustrative example. Try checking off a task here; in the app, you can edit its title, date, and details.</figcaption>
         </figure>
       </div>
     </section>
@@ -94,25 +94,25 @@
     <section id="how-it-works" class="section workflow" aria-labelledby="workflow-title">
       <div class="wrap">
         <div class="section-heading">
-          <p class="eyebrow">FROM THOUGHT TO TASK</p>
-          <h2 id="workflow-title">Start with what&rsquo;s on your mind.</h2>
-          <p class="section-lede">A few errands, a half-formed thought, or just one thing you need to do.</p>
+          <p class="eyebrow">LESS TO SET UP. LESS TO KEEP UP WITH.</p>
+          <h2 id="workflow-title">Start with one thought.</h2>
+          <p class="section-lede">You can capture a task before choosing a list, setting up a routine, or planning your whole day.</p>
         </div>
         <ol class="workflow-grid">
           <li class="workflow-step">
             <span class="step-number" aria-hidden="true">01</span>
-            <h3>No need to sort your thoughts first.</h3>
-            <p>Speak on your phone or type a capture. Unpact turns it into separate tasks you can open and edit.</p>
+            <h3>Say it as it comes.</h3>
+            <p>A few errands, a half-formed thought, or one thing you need to do. AI separates your capture into tasks and picks up dates you mention.</p>
           </li>
           <li class="workflow-step">
             <span class="step-number" aria-hidden="true">02</span>
-            <h3>Edit anything it gets wrong.</h3>
-            <p>Change a title, correct a date, or add a detail. The tasks are yours to adjust.</p>
+            <h3>Make it yours.</h3>
+            <p>Open a task to change its title, date, or details. Keep the useful parts and adjust anything that needs a second look.</p>
           </li>
           <li class="workflow-step">
             <span class="step-number" aria-hidden="true">03</span>
-            <h3>Choose what to do next.</h3>
-            <p>Pick a task to work on and check it off when you&rsquo;re done. You can plan the rest when you&rsquo;re ready.</p>
+            <h3>Take the next step.</h3>
+            <p>Choose one task and check it off when you&rsquo;re done. Research and day planning are there when you want more help.</p>
           </li>
         </ol>
       </div>
@@ -121,40 +121,49 @@
     <section class="section optional-features" aria-labelledby="optional-title">
       <div class="wrap">
         <div class="section-heading">
-          <p class="eyebrow">WHEN YOU NEED A LITTLE MORE</p>
-          <h2 id="optional-title">Help with the day. Or the difficult task.</h2>
-          <p class="section-lede">Add a date, set up a habit, or ask for help with the next steps.</p>
+          <p class="eyebrow">AI HELP, WHEN YOU WANT IT</p>
+          <h2 id="optional-title">A way into the task you&rsquo;ve been putting off.</h2>
+          <p class="section-lede">Sometimes you know what needs doing, but you&rsquo;re unsure how to begin. Get help right from the task.</p>
         </div>
+        <article class="research-showcase" aria-labelledby="research-title">
+          <div class="research-copy">
+            <p class="card-kicker">GO DEEPER</p>
+            <h3 id="research-title">Find out what the task actually takes.</h3>
+            <p>Ask Unpact to research an unfamiliar task. It can ask for details about your situation, find relevant steps, and bring the answers back to your task.</p>
+            <p>Source links and notes on what it couldn&rsquo;t confirm help you check the answer before acting.</p>
+            <p class="research-use-cases">Useful for life admin, from renewing a registration to figuring out how to submit an insurance claim.</p>
+          </div>
+          <aside class="research-walkthrough" aria-label="Example of using Go Deeper">
+            <p class="card-kicker">FOR EXAMPLE</p>
+            <h4>Renew my vehicle registration</h4>
+            <p class="research-prompt">&ldquo;What do I need to do, and which documents should I have ready?&rdquo;</p>
+            <ol class="demo-steps">
+              <li><strong>Add the context.</strong><span>Answer questions such as where your vehicle is registered.</span></li>
+              <li><strong>Get steps you can work through.</strong><span>Research helps turn the task into something you can start.</span></li>
+              <li><strong>Check the sources.</strong><span>Review the linked information and any open questions.</span></li>
+            </ol>
+          </aside>
+        </article>
         <article class="planning-showcase" aria-labelledby="planning-title">
           <div class="planning-copy">
-            <p class="card-kicker">PLANNING</p>
-            <h3 id="planning-title">Make room for what matters today.</h3>
-            <p>Build your day yourself, or ask Unpact for a draft plan. Review the proposal and decide what to accept.</p>
-            <p>On your phone, tap an open time to add a task. Tap a scheduled task to adjust its time or duration.</p>
+            <p class="card-kicker">PLAN WHEN YOU NEED TO</p>
+            <h3 id="planning-title">Let AI draft your day.</h3>
+            <p>Ask Unpact to propose a schedule from your tasks. Review the draft and choose whether to accept it. Adjust your schedule as the day changes.</p>
+            <p>You can also build a plan yourself, or work straight from your task list. A full schedule is optional.</p>
           </div>
           <figure class="plan-walkthrough demo" data-demo="plan" aria-label="Planning on your phone">
             <!-- demo:plan:media:start -->
             <!-- demo:plan:media:end -->
             <div class="demo-illustration">
-              <p class="card-kicker">ON YOUR PHONE</p>
+              <p class="card-kicker">FROM TASKS TO A DAY PLAN</p>
               <ol class="demo-steps">
-                <li><strong>Open your day in Plan.</strong><span>Choose a day and an open time.</span></li>
-                <li><strong>Pick a task.</strong><span>Choose its time and duration, then add it to your plan.</span></li>
-                <li><strong>Adjust it when you need to.</strong><span>Tap the scheduled task to change the details.</span></li>
+                <li><strong>Ask for a draft.</strong><span>AI proposes time for the tasks you need to do.</span></li>
+                <li><strong>Review before accepting.</strong><span>You decide what becomes your plan.</span></li>
+                <li><strong>Adjust as the day changes.</strong><span>On your phone, tap a scheduled task to change its time or duration.</span></li>
               </ol>
             </div>
-            <figcaption class="demo-fallback-caption">Mobile planning, step by step.</figcaption>
+            <figcaption class="demo-fallback-caption">A draft to work with. You choose what to accept.</figcaption>
           </figure>
-        </article>
-        <article class="research-summary">
-          <div>
-            <p class="card-kicker">RESEARCH</p>
-            <h3>Find a way into an unfamiliar task.</h3>
-          </div>
-          <div>
-            <p>Ask Unpact to research the steps, with source links and notes on what it couldn&rsquo;t confirm.</p>
-            <p class="research-example">For example: what do you need to renew your vehicle registration?</p>
-          </div>
         </article>
         <p class="section-note">AI can make mistakes. Check important dates, instructions, and source links.</p>
       </div>
@@ -164,8 +173,8 @@
       <div class="wrap">
         <div class="section-heading">
           <p class="eyebrow">START FREE</p>
-          <h2 id="pricing-title">Find out if it fits your day.</h2>
-          <p class="section-lede">No card required to get started. No trial countdown.</p>
+          <h2 id="pricing-title">Try it on your everyday tasks.</h2>
+          <p class="section-lede">AI captures, research, and day plans are included on Free. No card required. No trial countdown.</p>
         </div>
         <div class="pricing-grid">
           <article class="price-card">
@@ -177,7 +186,7 @@
               <li>3 research runs</li>
               <li>5 generated day plans</li>
             </ul>
-            <p class="price-note">Keep adding and editing tasks, managing habits, and adjusting your plan.</p>
+            <p class="price-note">Keep adding and editing tasks, managing habits, and adjusting your plan even after you use your monthly AI allowance.</p>
           </article>
           <article class="price-card">
             <h3>Unpact Pro</h3>
@@ -210,6 +219,14 @@
           <p>Unpact Pro removes those monthly capture, research, and generated-plan limits. See the available subscriptions, local prices, and billing periods in the mobile app. Manage or cancel through the store where you subscribe.</p>
         </details>
         <details>
+          <summary>Do I have to organize everything first?</summary>
+          <p>No. Start with a spoken or typed capture. Unpact creates editable tasks without requiring you to choose a list, set up a routine, or schedule your whole day. Add more structure when it helps.</p>
+        </details>
+        <details>
+          <summary>What does the AI do?</summary>
+          <p>AI turns your captures into separate tasks and picks up details such as dates you mention. You can also ask it to research a task or draft a day plan. Your tasks stay editable, and you choose whether to accept a proposed plan.</p>
+        </details>
+        <details>
           <summary>Can I type instead of speaking?</summary>
           <p>Yes. You can type on mobile and Windows. In-app voice recording is available on mobile; Windows uses typed capture.</p>
         </details>
@@ -231,8 +248,8 @@
     <section id="get-unpact" class="cta" aria-labelledby="download-title">
       <div class="wrap">
         <p class="eyebrow">READY WHEN YOU ARE</p>
-        <h2 id="download-title">Start with one thought.</h2>
-        <p>Choose how you&rsquo;d like to use Unpact.</p>
+        <h2 id="download-title">One thought. A clearer next step.</h2>
+        <p>Start free on the device that fits your day.</p>
         <div class="download-grid">
           <article id="get-android" class="download-card download-mobile">
             <h3>Android</h3>

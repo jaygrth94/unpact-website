@@ -1273,7 +1273,11 @@ footer nav {
 
 .home-page h1 {
   max-width: none;
-  font-size: clamp(40px, 4.6vw, 60px);
+  font-size: clamp(36px, 4.4vw, 56px);
+}
+
+.home-page h1 span {
+  color: var(--accent);
 }
 
 .home-page .hero-sub {
@@ -1315,6 +1319,39 @@ footer nav {
 
 .home-page .dump-tasks strong {
   overflow-wrap: anywhere;
+}
+
+.capture-example-tasks li {
+  align-items: center;
+  gap: 0 12px;
+  padding: 4px 12px;
+}
+
+.capture-example-tasks label {
+  display: flex;
+  flex: 1 1 180px;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.capture-example-tasks input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.capture-example-tasks input:checked + strong {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.capture-example-tasks li > span {
+  padding-block: 4px;
 }
 
 .dump-preview figcaption {
@@ -1556,7 +1593,8 @@ footer nav {
   text-underline-offset: 4px;
 }
 
-.planning-showcase {
+.planning-showcase,
+.research-showcase {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
@@ -1564,12 +1602,14 @@ footer nav {
 }
 
 .planning-copy,
+.research-copy,
+.research-walkthrough,
 .plan-walkthrough {
   min-width: 0;
 }
 
 .planning-copy h3,
-.research-summary h3 {
+.research-copy h3 {
   margin-top: 16px;
   font-size: 24px;
   line-height: 1.35;
@@ -1577,14 +1617,15 @@ footer nav {
 }
 
 .planning-copy > p:not(.card-kicker),
-.research-summary > div > p:not(.card-kicker) {
+.research-copy > p:not(.card-kicker) {
   margin-top: 14px;
   color: var(--muted);
   font-size: 15px;
   line-height: 1.8;
 }
 
-.plan-walkthrough {
+.plan-walkthrough,
+.research-walkthrough {
   padding: clamp(20px, 3vw, 28px);
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -1628,13 +1669,33 @@ footer nav {
   line-height: 1.7;
 }
 
-.research-summary {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-  padding-top: 32px;
+.research-showcase {
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.research-walkthrough h4 {
+  margin-top: 14px;
+  font-size: 20px;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+}
+
+.research-prompt {
+  margin-top: 12px;
+  border-left: 2px solid var(--accent);
+  padding-left: 14px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.research-copy .research-use-cases {
+  margin-top: 20px;
   border-top: 1px solid var(--border);
+  padding-top: 20px;
+  font-size: 14px;
 }
 
 .demo-recording ~ .demo-illustration,
@@ -1700,7 +1761,7 @@ footer nav {
   }
 
   .planning-showcase,
-  .research-summary {
+  .research-showcase {
     grid-template-columns: 1fr;
   }
 }

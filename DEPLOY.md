@@ -1,29 +1,37 @@
 # Deploying the Unpact site
 
-Static site — no build step. Any static host works. Recommended: Cloudflare Pages
-(free, fast, and gives you free email forwarding for support@unpact.app on the
-same dashboard).
+The site is static and needs no build step. Its source and publishing repository
+are separate:
 
-## Option A: Cloudflare Pages (recommended)
+- Source: [`jaygrth94/unpact`](https://github.com/jaygrth94/unpact), branch `main`,
+  directory `website/`.
+- Published files: [`jaygrth94/unpact-website`](https://github.com/jaygrth94/unpact-website),
+  branch `main`, repository root. GitHub Pages serves this repository at
+  [www.unpact.app](https://www.unpact.app/).
 
-1. Buy the domain (e.g. unpact.app) — can be done at Cloudflare Registrar directly.
-2. dash.cloudflare.com → Workers & Pages → Create → Pages → Upload assets
-   (drag the contents of this `website/` folder), or connect the GitHub repo
-   with `website` as the root directory.
-3. Custom domains → add unpact.app.
-4. Email Routing (in the domain's dashboard) → create address
-   support@unpact.app → forward to your Gmail. Free.
+Pushing the source repository alone does not publish the website.
 
-## Option B: GitHub Pages
+## Publishing an update
 
-1. Push this repo to GitHub.
-2. Repo → Settings → Pages → deploy from branch, folder `/website`
-   (or copy these files to a separate repo's root).
-3. Add the custom domain in the Pages settings and set the DNS records it shows
-   at your registrar.
-4. For support@unpact.app forwarding, use your registrar's email forwarding or
-   an external service (Cloudflare Email Routing works even if hosting is on
-   GitHub Pages, if DNS is on Cloudflare).
+1. Run the applicable checks below, review the website diff, then commit and push
+   the intended website changes to `jaygrth94/unpact` on `main`. Preserve unrelated
+   local app changes.
+2. Clone `jaygrth94/unpact-website` into a separate, clean directory and check out
+   its current `main` branch. Keep deployment work isolated from the app checkout.
+3. Copy the tracked contents of `website/` from the source commit into the
+   publishing repository's root. An export such as `git archive <commit>:website`
+   keeps untracked files and local artifacts out of the upload. Preserve the
+   publishing repository's `.git`, `CNAME`, and `.nojekyll` files. Remove obsolete
+   site files when the source commit deletes them; inspect the resulting diff
+   before committing.
+4. Commit the publishing changes with the source commit recorded in the message,
+   then push `jaygrth94/unpact-website` on `main`.
+5. Watch that repository's GitHub Pages deployment in
+   [Actions](https://github.com/jaygrth94/unpact-website/actions) until it succeeds.
+6. Fetch [the public homepage](https://www.unpact.app/) and the changed pages and
+   assets. Verify that their content matches the published update, including demo
+   media and download links where affected. A successful push alone is not proof
+   that the public site has updated.
 
 ## Before going live
 
@@ -31,11 +39,14 @@ same dashboard).
       recordings and provenance are described in `assets/demo/README.md`;
       pending recordings retain text examples instead of broken video players.
 - [ ] Run `node verify-responsive.mjs` from this directory.
+- [ ] Run `node --test scripts/demo-media.test.mjs` when changing demo media or
+      its playback and synchronization behavior.
 - [ ] Replace [YOUR STATE] in terms.html with your state (governing law).
 - [ ] Set up support@unpact.app forwarding (pages reference it).
 - [ ] Verify the Windows and Android release download URLs.
 - [ ] Confirm current iPhone availability before changing its neutral contact link.
-- [ ] Verify every feature claim against the released build capability matrix.
+- [ ] Verify changed feature claims against the released build capability matrix
+      in `CAPABILITIES.md`.
 - [ ] Replace product illustrations with sanitized current screenshots when available.
 - [ ] Publish the authenticated browser portal separately; do not place it inside
       this public marketing-site directory.
