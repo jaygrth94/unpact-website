@@ -1440,6 +1440,26 @@ footer nav {
   line-height: 1.8;
 }
 
+.reminders {
+  border-bottom: 1px solid var(--border);
+}
+
+.reminders-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+}
+
+.reminders .section-heading {
+  margin-bottom: 0;
+}
+
+.reminders .section-lede {
+  margin-top: 0;
+  line-height: 1.8;
+}
+
 .price-value {
   margin-top: 18px;
   font-size: 42px;
@@ -1545,8 +1565,13 @@ footer nav {
   .home-page .workflow-grid,
   .support-grid,
   .pricing-grid,
+  .reminders-layout,
   .download-grid {
     grid-template-columns: 1fr;
+  }
+
+  .reminders-copy {
+    text-align: center;
   }
 
   .home-page .hero {
