@@ -23,7 +23,7 @@
 
 <main class="legal wrap">
   <h1>Privacy Policy</h1>
-  <div class="updated">Last updated: September 28, 2026</div>
+  <div class="updated">Last updated: October 16, 2026</div>
 
   <p>Unpact ("we", "us") is a task capture and planning service. This policy explains what
   information we collect, how we use it, and the choices you have. The short version:
@@ -68,13 +68,17 @@
   <p>To provide the service, limited data is processed by providers acting on our
   behalf:</p>
   <ul>
-    <li><strong>AI and transcription providers</strong> — recordings, transcripts,
-    memos, task details, and answers may be sent to the model or transcription
-    provider configured for that feature so it can return the requested result.
+    <li><strong>AI and transcription providers</strong> — Unpact uses
+    <strong>DeepSeek</strong> to turn memos into tasks and to write research and day
+    plans, and <strong>Groq</strong> to transcribe voice recordings. Recordings go to
+    Groq; transcripts, memos, task details, and answers go to DeepSeek, so each can
+    return the requested result.
     <strong>This includes the times and titles of your calendar commitments when you
     ask Unpact to plan a day</strong>, because a plan has to be built around them and
     the name is what lets it reason sensibly about each one. No other part of a
-    calendar event is sent.</li>
+    calendar event is sent. The app asks for your permission before it first sends
+    anything to these providers, and you can turn AI processing off at any time in
+    Profile.</li>
     <li><strong>Public websites</strong> — when Unpact researches a task, it may
     retrieve publicly available pages to identify supporting sources. It does not
     submit your account credentials to those sites.</li>
